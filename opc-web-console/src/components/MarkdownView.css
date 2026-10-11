@@ -1,0 +1,55 @@
+/* Markdown 展示视图样式（MarkdownView.tsx）。颜色只用 index.css 语义变量。 */
+
+.mdv {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-height: 0;
+}
+
+.mdv-head {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 6px;
+}
+
+.mdv-actions {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+/* 源码视图：带行号（行号列固定宽、右对齐、不可选中） */
+.mdv-source {
+  margin: 0;
+  font-family: 'Cascadia Code', Consolas, 'Courier New', monospace;
+  font-size: 12px;
+  line-height: 1.7;
+  color: var(--text-primary);
+}
+
+.mdv-source-line {
+  display: flex;
+  gap: 10px;
+}
+
+.mdv-source-no {
+  flex: 0 0 42px;
+  text-align: right;
+  color: var(--text-muted);
+  user-select: none;
+}
+
+.mdv-source-text {
+  flex: 1;
+  min-width: 0;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.mdv-empty {
+  color: var(--text-secondary);
+  font-size: 12px;
+  padding: 12px 0;
+}

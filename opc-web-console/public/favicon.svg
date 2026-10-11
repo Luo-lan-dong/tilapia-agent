@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Tilapia 中枢 标签页图标 (favicon, SVG 矢量) -->
+<!-- 底板: 深炭黑圆角方块; T: 模块化绿色块 -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <!-- 竖笔从上到下: 深绿 -> 亮绿 -->
+    <linearGradient id="stemGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1F9D55"/>
+      <stop offset="100%" stop-color="#3DDC84"/>
+    </linearGradient>
+  </defs>
+
+  <!-- 底板: 深炭黑圆角方块 -->
+  <rect x="0" y="0" width="512" height="512" rx="112" ry="112" fill="#14141F"/>
+
+  <!-- T 横杠 - 左块 (深绿) -->
+  <rect x="96" y="92" width="104" height="92" rx="16" ry="16" fill="#2E9E5B"/>
+
+  <!-- T 横杠 - 中块 (亮绿) -->
+  <rect x="208" y="92" width="96" height="92" rx="16" ry="16" fill="#3DDC84"/>
+
+  <!-- T 横杠 - 右块 (深绿) -->
+  <rect x="312" y="92" width="104" height="92" rx="16" ry="16" fill="#2E9E5B"/>
+
+  <!-- T 竖笔 (渐变) -->
+  <rect x="216" y="192" width="80" height="172" rx="16" ry="16" fill="url(#stemGrad)"/>
+
+  <!-- T 底部节点方块 (亮绿) -->
+  <rect x="216" y="372" width="80" height="80" rx="16" ry="16" fill="#3DDC84"/>
+</svg>

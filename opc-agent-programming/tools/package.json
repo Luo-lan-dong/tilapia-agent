@@ -1,0 +1,10 @@
+{
+  "name": "tilapia-agent-tools",
+  "private": true,
+  "version": "1.0.0",
+  "description": "节点侧工具集（ADR-061 M7）：前端探针依赖固化。安装：npm ci --omit=dev && npx playwright install chromium",
+  "type": "module",
+  "dependencies": {
+    "playwright": "^1.45.0"
+  }
+}

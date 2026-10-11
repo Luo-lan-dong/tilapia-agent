@@ -1,0 +1,110 @@
+/* Markdown 渲染样式（零依赖渲染器，见 Markdown.tsx）。
+   颜色一律引用 index.css 的语义变量，满足 frontend-component-standards §3.1 颜色门禁。 */
+
+.md-body {
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--text-primary);
+  word-break: break-word;
+}
+
+/* 首尾元素去掉外边距，避免气泡内出现多余空白 */
+.md-body > :first-child {
+  margin-top: 0;
+}
+
+.md-body > :last-child {
+  margin-bottom: 0;
+}
+
+.md-paragraph {
+  margin: 0 0 8px;
+}
+
+.md-heading {
+  margin: 14px 0 8px;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--text-primary);
+}
+
+.md-heading--1 {
+  font-size: 18px;
+}
+
+.md-heading--2 {
+  font-size: 16px;
+}
+
+.md-heading--3 {
+  font-size: 15px;
+}
+
+.md-heading--4,
+.md-heading--5,
+.md-heading--6 {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.md-list {
+  margin: 0 0 8px;
+  padding-left: 20px;
+}
+
+.md-list li {
+  margin: 2px 0;
+}
+
+.md-inline-code {
+  padding: 1px 5px;
+  border-radius: 4px;
+  background: var(--code-bg);
+  font-family: 'Cascadia Code', Consolas, 'Courier New', monospace;
+  font-size: 12px;
+}
+
+.md-code-block {
+  margin: 0 0 8px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: var(--code-block-bg);
+  color: var(--code-block-text);
+  overflow: auto;
+  max-height: 360px;
+}
+
+.md-code-block code {
+  font-family: 'Cascadia Code', Consolas, 'Courier New', monospace;
+  font-size: 12px;
+  line-height: 1.6;
+  white-space: pre;
+}
+
+.md-quote {
+  margin: 0 0 8px;
+  padding: 4px 12px;
+  border-left: 3px solid var(--primary-border);
+  background: var(--primary-bg);
+  border-radius: 0 6px 6px 0;
+  color: var(--text-secondary);
+}
+
+.md-quote p {
+  margin: 2px 0;
+}
+
+.md-hr {
+  margin: 12px 0;
+  border: none;
+  border-top: 1px solid var(--border);
+}
+
+.md-body a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.md-body a:hover {
+  text-decoration: underline;
+}

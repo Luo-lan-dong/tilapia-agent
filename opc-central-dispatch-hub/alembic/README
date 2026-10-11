@@ -1,0 +1,13 @@
+OPC 中央调度中枢 Alembic 数据库迁移目录。
+
+初始化迁移命令：
+
+    alembic init alembic
+
+生成迁移：
+
+    alembic revision --autogenerate -m "描述"
+
+应用迁移：
+
+    alembic upgrade head

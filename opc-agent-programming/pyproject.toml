@@ -1,0 +1,54 @@
+[project]
+name = "opc-agent-programming"
+version = "0.6.8"
+description = "OPC Linux programming agent node"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+authors = [
+    { name = "OPC Team" },
+]
+keywords = ["opc", "agent", "programming", "linux"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+dependencies = [
+    "httpx>=0.27.0",
+    "websockets>=12.0",
+    "pydantic-settings>=2.0",
+    "python-dotenv>=1.0.0",
+    "structlog>=24.0",
+    "psutil>=6.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "ruff>=0.5.0",
+    "pytest>=8",
+    "pytest-asyncio>=0.23",
+    "respx>=0.21",
+]
+
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["app", "app.client", "app.executor", "app.models", "app.utils"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "W"]
+ignore = []
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"

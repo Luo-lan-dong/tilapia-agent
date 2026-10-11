@@ -1,0 +1,67 @@
+# ============================================================
+# 稳定版发布目录（GitHub 开源仓库）专用忽略规则
+# 目标：仓库里只有源码 + 文档，任何时候都不出现产物、缓存、密钥与运行期数据
+# ============================================================
+
+# ---- 依赖与构建产物 ----
+node_modules/
+dist/
+build/
+out/
+.vite/
+.turbo/
+coverage/
+*.tsbuildinfo
+*.tar.gz
+*.zip
+
+# ---- Python 产物与虚拟环境 ----
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.nuitka/
+artifacts/
+
+# ---- 运行期数据、日志与工作区 ----
+logs/
+*.log
+data/
+pgsql/
+installer/Output/
+**/task_workdirs.json
+**/workspaces/
+static/binaries/tilacode/*/tilacode-linux-x64
+
+# ---- 随包但不入库的重型工具链（浏览器探针、便携 node 等）----
+opc-agent-programming/tools/node/
+opc-agent-programming/tools/node_modules/
+**/.playwright/
+
+# ---- 密钥与本地配置：严禁提交 ----
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+id_rsa*
+credentials.json
+
+# ---- 本机 / 编辑器 ----
+.vscode/
+!.vscode/extensions.json
+.idea/
+.DS_Store
+Thumbs.db
+tmp/
+.tmp-*
+
+# ---- 明确不随开源发布的内容（如需发布请显式修改本文件）----
+借鉴/
+设计稿/
+tilapia-agent-PolyForm-NC/

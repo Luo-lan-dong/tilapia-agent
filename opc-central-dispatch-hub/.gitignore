@@ -1,0 +1,13 @@
+.env
+.env.local
+.venv/
+venv/
+__pycache__/
+.pytest_cache/
+*.pyc
+.ruff_cache/
+.mypy_cache/
+
+# 排除 tilacode 预编译二进制（约 130MB），仅排除二进制本身，保留 manifest.json
+static/binaries/tilacode/*/tilacode-linux-x64
+opc-central-dispatch-hub/logs/

@@ -1,0 +1,130 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+/* ============================================================
+ * 主题语义变量（单一事实源，与 src/theme/tokens.ts 一致）
+ * 颜色双态：:root = 暗色默认；html[data-theme='light'] = 亮色整体覆盖（ADR-052）。
+ * 尺寸档位/语义间距：仅 :root 一份（§3.2，与 tokens.ts 档位一致）。
+ * 组件样式一律 var(--*) 引用，禁止新增颜色字面量（CI 防回潮检查）。
+ * ============================================================ */
+:root {
+  /* ---- 尺寸 token（frontend-component-standards §3.2，2026-10-07 落地；
+       尺寸不分主题态，仅 :root 一份；与 src/theme/tokens.ts 档位一致）---- */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --space-xxs: 2px;
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 12px;
+  --space-lg: 16px;
+  --space-xl: 24px;
+  --space-xxl: 32px;
+  /* 语义间距：页面只允许用语义变量，不直接用档位 */
+  --space-inline: var(--space-sm);
+  --space-stack: var(--space-md);
+  --space-group: var(--space-xl);
+  --card-padding: var(--space-lg);
+  --section-gap: var(--space-xl);
+  --control-height-sm: 24px;
+  --control-height-md: 32px;
+  --control-height-lg: 40px;
+  --icon-sm: 14px;
+  --icon-md: 16px;
+  --icon-lg: 20px;
+
+  /* ---- 颜色语义变量（ADR-052 双态）---- */
+  --bg-base: #1a1b1d;
+  --bg-container: #222427;
+  --bg-elevated: #222427;
+  --border: rgba(224, 226, 242, 0.1);
+  --border-strong: rgba(224, 226, 242, 0.16);
+  --border-faint: rgba(224, 226, 242, 0.08);
+  --surface: rgba(224, 226, 242, 0.04);
+  --code-bg: rgba(224, 226, 242, 0.06);
+  --text-primary: #d1d3db;
+  --text-secondary: #9599a6;
+  --text-muted: #666b75;
+  --primary: #32f08c;
+  --primary-soft: rgba(50, 240, 140, 0.08);
+  --primary-bg: rgba(50, 240, 140, 0.12);
+  --primary-border: rgba(50, 240, 140, 0.2);
+  --on-primary: #0c0c0d;
+  --info: #5b8def;
+  --error: #f65a5a;
+  --error-soft: rgba(246, 90, 90, 0.12);
+  --alert-warning-soft: rgba(246, 169, 53, 0.12);
+  --alert-info-soft: rgba(91, 141, 239, 0.12);
+  --status-running: #33c192;
+  --status-warn: #d27e24;
+  --status-pending: #d8a534;
+  --shadow-overlay: 0 2px 8px rgba(0, 0, 0, 0.35);
+  --overlay-mask: rgba(10, 12, 16, 0.45);
+  --code-block-bg: #0c0c0d;
+  --code-block-text: #e8e9ed;
+  --scrollbar-thumb: rgba(255, 255, 255, 0.16);
+  --scrollbar-thumb-hover: rgba(255, 255, 255, 0.28);
+}
+
+html[data-theme='light'] {
+  --bg-base: #f5f6fa;
+  --bg-container: #ffffff;
+  --bg-elevated: #ffffff;
+  --border: rgba(20, 25, 40, 0.1);
+  --border-strong: rgba(20, 25, 40, 0.18);
+  --border-faint: rgba(20, 25, 40, 0.06);
+  --surface: rgba(20, 25, 40, 0.04);
+  --code-bg: rgba(20, 25, 40, 0.05);
+  --text-primary: #1f2430;
+  --text-secondary: #6b7280;
+  --text-muted: #9ca3af;
+  --primary: #0eaa6b;
+  --primary-soft: rgba(14, 170, 107, 0.1);
+  --primary-bg: rgba(14, 170, 107, 0.12);
+  --primary-border: rgba(14, 170, 107, 0.25);
+  --on-primary: #ffffff;
+  --info: #2563eb;
+  --error: #dc4444;
+  --error-soft: rgba(220, 68, 68, 0.1);
+  --alert-warning-soft: rgba(180, 83, 9, 0.1);
+  --alert-info-soft: rgba(37, 99, 235, 0.08);
+  --status-running: #0e9f6e;
+  --status-warn: #b45309;
+  --status-pending: #a16207;
+  --shadow-overlay: 0 2px 8px rgba(15, 23, 42, 0.12);
+  --overlay-mask: rgba(15, 23, 42, 0.4);
+  --code-block-bg: #f8f9fb;
+  --code-block-text: #1f2430;
+  --scrollbar-thumb: rgba(20, 25, 40, 0.18);
+  --scrollbar-thumb-hover: rgba(20, 25, 40, 0.3);
+}
+
+/* 滚动条统一定制：WebView2/Chromium 默认滚动条跟随系统主题，
+   与应用主题不符时十分突兀（ADR-021 桌面窗口），随主题变量切换；
+   2026-10-07 用户反馈 8px 偏粗，收窄到 6px */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover);
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
+}

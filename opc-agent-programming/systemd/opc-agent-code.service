@@ -1,0 +1,23 @@
+[Unit]
+Description=OPC Code Agent (proxy + tilacode)
+After=network.target
+# 禁用启动限流：中枢长时间离线时注册会快速失败，默认 StartLimitBurst
+# （10s 内 5 次）可能导致 systemd 放弃拉起，中枢恢复后节点永久离线。
+# 应用内重连（ADR-020）生效后 systemd 仅兜底进程自身崩溃。
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/opc-agent-code
+Environment=PYTHONUNBUFFERED=1
+ExecStart=/opt/opc-agent-code/bin/opc-agent
+Restart=always
+RestartSec=5
+User=root
+Group=root
+
+# 安全提示：MVP 阶段使用 root 运行以简化部署。
+# 生产环境建议创建专用 opc 用户，并限制文件系统权限。
+
+[Install]
+WantedBy=multi-user.target

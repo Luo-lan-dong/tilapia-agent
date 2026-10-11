@@ -1,0 +1,80 @@
+/* 终端抽屉（ADR-053）：PTY 交互式终端 + 权限三档切换。样式仅作用本组件。 */
+
+.terminal-drawer__body {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  gap: 8px;
+  padding: 12px 16px 16px;
+}
+
+.terminal-drawer__toolbar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.terminal-drawer__tabs {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  min-width: 0;
+}
+
+.terminal-drawer__tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 10px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 12px;
+  color: var(--text-secondary);
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+}
+
+.terminal-drawer__tab.is-active {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.terminal-drawer__tab-close {
+  font-size: 10px;
+  opacity: 0.6;
+}
+
+.terminal-drawer__tab-close:hover {
+  opacity: 1;
+}
+
+.terminal-drawer__title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.terminal-drawer__mode-select {
+  min-width: 140px;
+}
+
+.terminal-drawer__warning {
+  font-size: 12px;
+  color: var(--error);
+}
+
+.terminal-drawer__host {
+  flex: 1;
+  min-height: 0;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg-base);
+  padding: 6px;
+  overflow: hidden;
+}
+
+.terminal-drawer__host .xterm {
+  height: 100%;
+}

@@ -1,0 +1,45 @@
+/* 日志页（ADR-047）布局：页名由顶部标题栏展示，页内固定视口高度——
+   Tabs 与筛选区常驻，仅表格区域内部滚动（表头 sticky 常驻）。 */
+
+.logs-page {
+  height: calc(100vh - 64px);
+  padding: 16px 24px 24px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.logs-page__tabs {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.logs-page__tabs .ant-tabs-nav {
+  margin: 0 0 12px;
+}
+
+/* 标签内容撑满剩余高度，滚动交给各 Card body */
+.logs-page__tabs .ant-tabs-content-holder {
+  flex: 1;
+  min-height: 0;
+}
+
+.logs-page__tabs .ant-tabs-content,
+.logs-page__tabs .ant-tabs-tabpane {
+  height: 100%;
+}
+
+/* Card 填满标签面板：head（筛选区）固定，body 成为滚动容器 */
+.logs-page__card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.logs-page__card > .ant-card-body {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+}

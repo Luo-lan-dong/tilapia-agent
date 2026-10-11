@@ -1,0 +1,251 @@
+/* 节点 Agent 会话轨迹折叠块样式（ADR-063 M3）。
+   颜色一律引用语义变量（frontend-component-standards 3.1，禁止色值字面量）。 */
+.node-trace {
+  margin: 8px 0;
+}
+
+.node-trace__collapse {
+  background: var(--surface);
+  border: 1px solid var(--border-faint);
+  border-radius: 10px;
+}
+
+.node-trace__collapse .ant-collapse-header {
+  padding: 8px 12px !important;
+}
+
+.node-trace__collapse .ant-collapse-content-box {
+  padding: 0 12px 10px !important;
+}
+
+.node-trace__header {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  width: 100%;
+}
+
+.node-trace__header-icon {
+  color: var(--text-secondary);
+}
+
+.node-trace__source-tag {
+  margin: 0;
+  padding: 0 6px;
+  font-size: 12px;
+  line-height: 18px;
+  color: var(--primary);
+  background: var(--primary-soft);
+  border: 1px solid var(--primary-border);
+  border-radius: 4px;
+}
+
+.node-trace__title {
+  flex: none;
+  max-width: 160px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.node-trace__task {
+  flex: none;
+  max-width: 180px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--text-secondary);
+}
+
+.node-trace__action {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--text-muted);
+  font-size: 12px;
+}
+
+.node-trace__progress {
+  flex: none;
+  color: var(--status-running);
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+}
+
+.node-trace__count {
+  flex: none;
+  color: var(--text-muted);
+  font-size: 12px;
+}
+
+.node-trace__body {
+  position: relative;
+}
+
+.node-trace__loading {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  padding: 8px 0;
+  color: var(--text-secondary);
+  font-size: 12px;
+}
+
+.node-trace__load-earlier {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 4px 0;
+  color: var(--text-secondary);
+  font-size: 12px;
+  cursor: pointer;
+  background: transparent;
+  border: 1px dashed var(--border);
+  border-radius: 6px;
+  margin-bottom: 6px;
+}
+
+.node-trace__load-earlier:hover {
+  color: var(--text-primary);
+  border-color: var(--border-strong);
+}
+
+.node-trace__rows {
+  max-height: 360px;
+  padding: 0 4px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-thumb) transparent;
+}
+
+.node-trace__row {
+  padding: 4px 0;
+  font-size: 12px;
+  line-height: 1.6;
+  border-bottom: 1px solid var(--border-faint);
+}
+
+.node-trace__row:last-child {
+  border-bottom: none;
+}
+
+.node-trace__row--status {
+  color: var(--text-muted);
+}
+
+.node-trace__status-stage {
+  margin-right: 6px;
+  padding: 0 5px;
+  color: var(--text-secondary);
+  background: var(--code-bg);
+  border-radius: 4px;
+}
+
+.node-trace__row-tag {
+  flex: none;
+  margin-right: 8px;
+  padding: 0 5px;
+  font-size: 11px;
+  color: var(--info);
+  background: var(--alert-info-soft);
+  border-radius: 4px;
+}
+
+.node-trace__row--reasoning {
+  display: flex;
+  align-items: flex-start;
+}
+
+.node-trace__reasoning-text {
+  flex: 1;
+  min-width: 0;
+  color: var(--text-secondary);
+  font-style: italic;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.node-trace__row--tool {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+}
+
+.node-trace__tool-name {
+  padding: 0 5px;
+  color: var(--text-primary);
+  background: var(--code-bg);
+  border-radius: 4px;
+  font-size: 12px;
+}
+
+.node-trace__tool-phase {
+  font-size: 11px;
+  color: var(--text-secondary);
+}
+
+.node-trace__tool-phase--success {
+  color: var(--status-running);
+}
+
+.node-trace__tool-phase--failed {
+  color: var(--error);
+}
+
+.node-trace__tool-detail {
+  max-width: 320px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--text-secondary);
+  background: var(--code-bg);
+  border-radius: 4px;
+  padding: 0 5px;
+  font-size: 12px;
+}
+
+.node-trace__tool-summary {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--text-muted);
+}
+
+.node-trace__tool-exit {
+  flex: none;
+  color: var(--text-muted);
+  font-size: 11px;
+}
+
+.node-trace__text-body {
+  color: var(--text-primary);
+  font-size: 12px;
+}
+
+.node-trace__new-pill {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: inline-flex;
+  gap: 4px;
+  align-items: center;
+  padding: 2px 10px;
+  color: var(--on-primary);
+  font-size: 12px;
+  cursor: pointer;
+  background: var(--primary);
+  border: none;
+  border-radius: 999px;
+  box-shadow: var(--shadow-overlay);
+}

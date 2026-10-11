@@ -1,0 +1,35 @@
+/* 节点状态 Tag（ADR-052）：状态色由 CSS 变量承载，淡背景/边框用 color-mix 派生 */
+
+.node-status-tag {
+  margin-inline-end: 0;
+}
+
+.node-status-tag--idle {
+  color: var(--status-running);
+  background: color-mix(in srgb, var(--status-running) 10%, transparent);
+  border-color: color-mix(in srgb, var(--status-running) 20%, transparent);
+}
+
+.node-status-tag--busy {
+  color: var(--status-warn);
+  background: color-mix(in srgb, var(--status-warn) 10%, transparent);
+  border-color: color-mix(in srgb, var(--status-warn) 20%, transparent);
+}
+
+.node-status-tag--starting {
+  color: var(--status-pending);
+  background: color-mix(in srgb, var(--status-pending) 10%, transparent);
+  border-color: color-mix(in srgb, var(--status-pending) 20%, transparent);
+}
+
+.node-status-tag--offline {
+  color: var(--text-muted);
+  background: color-mix(in srgb, var(--text-muted) 10%, transparent);
+  border-color: color-mix(in srgb, var(--text-muted) 20%, transparent);
+}
+
+.node-status-tag--error {
+  color: var(--error);
+  background: color-mix(in srgb, var(--error) 10%, transparent);
+  border-color: color-mix(in srgb, var(--error) 20%, transparent);
+}

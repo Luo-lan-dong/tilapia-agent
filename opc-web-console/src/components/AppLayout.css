@@ -1,0 +1,140 @@
+/* 应用整体布局样式，仅作用于 AppLayout 组件内部元素 */
+
+.app-layout {
+  min-height: 100vh;
+  background: var(--bg-base);
+}
+
+.app-layout__sider {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 200px !important;
+  min-width: 200px !important;
+  max-width: 200px !important;
+  height: 100vh;
+  overflow-y: auto;
+  background: var(--bg-container) !important;
+  border-right: 1px solid var(--border);
+  padding: 16px 0 12px;
+}
+
+.app-layout__brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 16px 20px;
+}
+
+.app-layout__logo {
+  width: 32px;
+  height: 32px;
+  display: block;
+  border-radius: 8px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.app-layout__title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 24px;
+}
+
+.app-layout__menu {
+  /* 菜单配色已迁移至 App.tsx ConfigProvider theme.components.Menu（dark tokens），
+     此处仅保留布局细节覆盖 */
+  border-right: none;
+}
+
+.app-layout__sider-footer {
+  margin-top: auto;
+  padding: 12px 16px 0;
+  border-top: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--text-primary);
+}
+
+.app-layout__status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--text-muted);
+}
+
+.app-layout__status-dot--online {
+  background: var(--status-running);
+}
+
+.app-layout__version {
+  margin-left: auto;
+  color: var(--text-secondary);
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+}
+
+.app-layout__version:hover {
+  color: var(--primary);
+}
+
+.app-layout__main {
+  margin-left: 200px;
+  background: var(--bg-base);
+  min-height: 100vh;
+}
+
+.app-layout__main--mobile {
+  margin-left: 0;
+}
+
+.app-layout__header {
+  position: sticky;
+  top: 0;
+  z-index: 99;
+  background: var(--bg-container);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  height: 64px;
+  gap: 12px;
+}
+
+.app-layout__mobile-menu-button {
+  color: var(--text-primary) !important;
+  padding: 0 4px !important;
+  margin-left: -8px;
+}
+
+.app-layout__mobile-menu-button:hover {
+  color: var(--primary) !important;
+  background: var(--primary-soft) !important;
+}
+
+/* 抽屉内部样式已迁移至 AppLayout.tsx Drawer styles.body prop 与
+   ConfigProvider theme.components.Drawer.contentBg（规范禁止 .ant-* 全局覆盖） */
+
+.app-layout__page-title {
+  margin: 0 !important;
+  color: var(--text-primary) !important;
+}
+
+.app-layout__header-actions {
+  color: var(--text-secondary);
+}
+
+.app-layout__avatar {
+  background: var(--surface);
+  color: var(--text-primary);
+}
+
+.app-layout__content {
+  background: var(--bg-base);
+  min-height: calc(100vh - 64px);
+}

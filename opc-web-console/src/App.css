@@ -1,0 +1,8 @@
+.app-root {
+  min-height: 100vh;
+}
+
+body {
+  background: var(--bg-base);
+  color: var(--text-primary);
+}

@@ -1,0 +1,16 @@
+[Unit]
+Description=OPC Office Agent (ADR-062)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/opc-agent-office
+ExecStart=/opt/opc-agent-office/venv/bin/python -m app.main
+Restart=always
+RestartSec=5
+# 结构化日志走 journald + 本地文件（app.utils.logger）
+Environment=PYTHONUNBUFFERED=1
+
+[Install]
+WantedBy=multi-user.target

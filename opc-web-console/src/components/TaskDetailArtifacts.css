@@ -1,0 +1,188 @@
+/* 任务产物资源管理器样式（ADR-028 UI 迭代，见 docs/spec/artifacts-panel-ui-changes.md）。
+   颜色一律引用 index.css 语义变量，满足 frontend-component-standards §3.1。 */
+
+/* 面板整体：竖向排列（工具条 / 浏览区 / 底部刷新） */
+.artifacts {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+  min-height: 0;
+}
+
+.artifacts__toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.artifacts__toolbar-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-secondary);
+  font-size: 12px;
+  min-width: 0;
+}
+
+.artifacts__toolbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* 浏览区：预览 + 分隔条 + 文件树（panel 形态下预览在左） */
+.artifacts__browse {
+  display: flex;
+  gap: 0;
+  flex: 1;
+  min-height: 0;
+}
+
+.artifacts__browse--drawer {
+  min-height: 320px;
+}
+
+/* 树容器：宽度由 useResizablePanel 注入 */
+.artifacts__tree {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 6px 4px;
+  overflow: auto;
+  min-width: 0;
+  min-height: 0;
+}
+
+/* 可拖动分隔条（视觉细、命中区宽，便于抓取） */
+.artifacts__splitter {
+  flex: 0 0 8px;
+  cursor: col-resize;
+  position: relative;
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
+.artifacts__splitter::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 3px;
+  width: 2px;
+  border-radius: 2px;
+  background: var(--border);
+  transition: background 0.15s ease;
+}
+
+.artifacts__splitter:hover::before,
+.artifacts__splitter--active::before {
+  background: var(--primary);
+}
+
+/* 拖拽中禁止选中文本，避免出现整片蓝色选区 */
+.artifacts__splitter--active {
+  user-select: none;
+}
+
+/* 预览容器 */
+.artifacts__preview {
+  flex: 1;
+  min-width: 0;
+  min-height: 0;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 12px;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.artifacts__preview-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.artifacts__preview-path {
+  font-size: 12px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  min-width: 0;
+}
+
+.artifacts__preview-empty {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: var(--text-secondary);
+  text-align: center;
+  padding: 24px 12px;
+}
+
+/* 源码视图：带行号（行号列与内容同字体同高，用 table-layout 对齐） */
+.artifacts__source {
+  margin: 0;
+  font-family: 'Cascadia Code', Consolas, 'Courier New', monospace;
+  font-size: 12px;
+  line-height: 1.7;
+  white-space: pre-wrap;
+  word-break: break-word;
+  color: var(--text-primary);
+}
+
+.artifacts__source-line {
+  display: flex;
+  gap: 10px;
+}
+
+.artifacts__source-no {
+  flex: 0 0 42px;
+  text-align: right;
+  color: var(--text-muted);
+  user-select: none;
+}
+
+.artifacts__source-text {
+  flex: 1;
+  min-width: 0;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+/* 树节点：名字 + 大小 */
+.artifacts__node {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+  max-width: 100%;
+}
+
+.artifacts__node-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.artifacts__node-size {
+  flex: 0 0 auto;
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+/* 搜索命中高亮 */
+.artifacts__hit {
+  background: var(--primary-bg);
+  color: var(--primary);
+  border-radius: 2px;
+  padding: 0 1px;
+}

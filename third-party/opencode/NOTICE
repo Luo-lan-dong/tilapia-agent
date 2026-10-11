@@ -1,0 +1,27 @@
+# tilacode NOTICE
+
+本产品基于 opencode 项目修改而来。
+
+## 原始项目信息
+
+- 项目名称：opencode
+- 原始仓库：https://github.com/anomalyco/opencode
+- 版权所有者：Copyright (c) 2025 opencode
+- 开源协议：MIT License
+
+## 修改说明
+
+本项目（tilacode）基于 opencode 源码进行修改和重命名，包括但不限于：
+- 项目/目录重命名：opencode → tilacode
+- 命令行工具重命名：opencode → tilacode
+- 配置目录重命名：.opencode/ → .tilacode/
+- 环境变量前缀重命名：OPENCODE_ → TILACODE_
+
+## MIT 协议合规声明
+
+依据 MIT 协议要求：
+- 上述版权声明和本许可声明应包含在本软件的所有副本或实质性部分中
+- 本软件按"原样"提供，不提供任何明示或暗示的担保
+- 原作者不对本软件的修改行为承担责任
+
+原始 LICENSE 文件保留在本项目根目录的 LICENSE 文件中。
