@@ -6,7 +6,7 @@
 
 - **中枢 TilapiaHub**（Windows 桌面版）：Web 控制台 + AI 编排器 + 任务/节点/模型管理，内嵌 PostgreSQL 开箱即用；
 - **编程 Agent 节点**（Linux）：Nuitka 编译、零 Python 依赖，执行引擎 `tilacode` 基于 [opencode](https://github.com/anomalyco/opencode) 二次开发（MIT）；
-- **办公 Agent 节点**（Linux）：文档 / 表格 / 演示文稿生成工具链。
+- **办公 Agent 节点**（Linux）：文档 / 表格 / 演示文稿生成工具链。（当前版本不可用）
 
 ## 本项目全程由 Agent 开发
 
